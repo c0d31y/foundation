@@ -11,11 +11,13 @@ class QuickSort {
 
   template <typename T>
 	static void sort(Array<T>& a) {
+		shuffle(a);
 		sort(a, 0, a.size());
 	}
 
 	template <typename T>
 	static void sort_3way(Array<T>& a) {
+		shuffle(a);
 		sort_3way(a, 0, a.size());
 	}
 

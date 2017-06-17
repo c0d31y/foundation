@@ -4,9 +4,9 @@ project ("algs4-cpp")
 set (CMAKE_BUILD_TYPE debug)
 set (CMAKE_CXX_STANDARD 11)
 
-include_directories("base" "sort")
+include_directories("base" "sort" "graph")
 
-file (GLOB SRCS "base/*.cc" "sort/*.cc")
+file (GLOB SRCS "base/*.cc" "sort/*.cc" "graph/*.cc")
 list(LENGTH SRCS FILE_NUMS)
 
 if (FILE_NUMS GREATER 0)

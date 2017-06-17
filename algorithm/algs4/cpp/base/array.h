@@ -2,6 +2,7 @@
 #define __BASE_ARRAY_H__
 
 #include <iostream>
+#include <random>
 
 namespace algs4 {
 
@@ -85,6 +86,19 @@ template <typename T>
 std::ostream& operator << (std::ostream& os, const Array<T>& a) {
 	for (const auto& i : a) std::cout << i << " ";
 	return os;
+}
+
+template <typename T>
+void shuffle(Array<T>& a) {
+
+	std::default_random_engine e;
+	int n = a.size();
+
+	for (int i = 1; i < n; ++i) {
+		std::uniform_int_distribution<unsigned> u(0, i);
+		int j = u(e);
+		T tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+	}
 }
 
 }
