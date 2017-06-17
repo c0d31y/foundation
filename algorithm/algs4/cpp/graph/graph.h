@@ -27,7 +27,7 @@ class Graph {
 	Bag<int> *adj_;
 };
 
-std::ostream& operator << (std::ostream& os, const Graph G);
+std::ostream& operator << (std::ostream& os, const Graph& G);
 
 }
 	

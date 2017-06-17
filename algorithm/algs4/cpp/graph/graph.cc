@@ -31,7 +31,7 @@ void Graph::addEdge(int v, int w) {
 
 const Bag<int>& Graph::adj(int v) const { return adj_[v]; }
 	
-std::ostream& operator << (std::ostream& os, const Graph G) {
+std::ostream& operator << (std::ostream& os, const Graph& G) {
 
 	os << G.V() << " vertices, " << G.E() << " edges" << std::endl;
 	for (int v = 0; v < G.V(); ++v) {
