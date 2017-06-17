@@ -108,9 +108,8 @@ class QueueIterator {
 		return *tmp;
 	}
 
-  T& operator * () const {
-		return cur->item;  
-	}
+  T& operator * () { return cur->item;  }
+  const T& operator * () const { return cur->item;  }
 
  private:
 	typename Queue<T>::Node cur;

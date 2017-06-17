@@ -11,7 +11,7 @@ list(LENGTH SRCS FILE_NUMS)
 
 if (FILE_NUMS GREATER 0)
 
-	add_library(algs4 ${SRCS})
+	add_library(algs4 STATIC ${SRCS})
 
 endif()
 

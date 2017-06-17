@@ -1,6 +1,6 @@
-# Demo Cases
+# Test Cases
 
-Here is the demos for exch algorithms. The usage of each demo is the same for all language implementation. For example:
+Here is how to run the test demo of each algorithm.  For example:
 
 ```bash
 # java
