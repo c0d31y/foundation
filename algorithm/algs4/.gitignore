@@ -1,2 +1,5 @@
 data/
 cases/
+assignment/data/
+download/
+*.class

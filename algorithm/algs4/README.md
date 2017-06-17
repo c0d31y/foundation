@@ -10,7 +10,7 @@ Here is the demos for exch algorithms. The usage of each demo is the same for al
 % python bag.py < tobe.txt
 
 # c++
-% ./bag < tobe.txt
+% ./bag_tests < tobe.txt
 ```
 
 All data files are downloaded from the [course website](http://algs4.cs.princeton.edu/code/algs4-data.zip)
@@ -69,6 +69,52 @@ to be or not to be (2 left on queue)
 7 2
 6 1
 2 components
+
+% java UF < mediumUF.txt
+528 503
+548 523
+389 414
+446 421
+552 553
+154 155
+173 174
+373 348
+567 542
+44 43
+370 345
+546 547
+204 229
+404 429
+240 215
+364 389
+612 611
+513 512
+377 376
+... ...
+3 components.
+
+% java UF < largeUF.txt
+786321 134521
+696834 98245
+135991 549478
+44723 265931
+698410 385074
+605706 520899
+462258 656850
+807101 778785
+400066 73310
+51236 774849
+73567 396244
+131311 706500
+460661 848448
+516872 565515
+527941 319687
+798741 997522
+271929 192591
+911577 210982
+791065 737806
+ ... ...
+6 components.
 ```
 
 ## Sorting
