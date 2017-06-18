@@ -21,7 +21,7 @@ class IndexMinPQ {
 		delete[] keys;
 	}
 
-	bool empty() const { return n == 0; }
+	bool isEmpty() const { return n == 0; }
 	int size() const { return n; } 
 	int min() const { return pq[1]; }
 

@@ -1,7 +1,7 @@
 #ifndef __SORT_SHELLSORT_H__
 #define __SORT_SHELLSORT_H__
 
-#include <array.h>
+#include "array.h"
 
 namespace algs4 {
 

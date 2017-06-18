@@ -1,10 +1,12 @@
 #ifndef __BASE_STACK_H__
 #define __BASE_STACK_H__
 
+#include <iostream>
+
 namespace algs4 {
 
 template <typename T>
-class StackIteartor;
+class StackIterator;
 
 template <typename T>
 class Stack;
@@ -15,11 +17,11 @@ class Stack {
 	struct Node;
 
 	template <typename U>
-	friend class StackIteartor;
+	friend class StackIterator;
 
  public:
 
-	typedef StackIteartor<T> iterator;
+	typedef StackIterator<T> iterator;
 
 	Stack(): first(nullptr), n(0) { }
 
@@ -30,7 +32,7 @@ class Stack {
 		}
 	}
 
-	bool empty() const {
+	bool isEmpty() const {
 		return first == nullptr;
 	}
 
@@ -52,11 +54,11 @@ class Stack {
 		return item;
 	}
 
-	iterator begin() {
+	iterator begin() const {
 		return iterator(first);
 	}
 
-	iterator end() {
+	iterator end() const {
 		return iterator(nullptr);
 	}
 
@@ -106,6 +108,12 @@ class StackIterator {
 
 	typename Stack<T>::Node *cur;
 };
+
+template <typename T>
+std::ostream& operator << (std::ostream& os, const Stack<T>& stk) {
+	for (const auto& item : stk) os << stk << " ";
+	return os;
+} 
 
 }
 		

@@ -32,7 +32,7 @@ class Queue {
 		}
 	}
 
-	bool empty() const {
+	bool isEmpty() const {
 		return first == nullptr;
 	}
 

@@ -14,7 +14,7 @@ class MinPQ {
 
 	~MinPQ() { delete[] pq; }
 
-	bool empty() const { return n == 0; }
+	bool isEmpty() const { return n == 0; }
 	int size() const { return n; }
 
 	void insert(T key) {
