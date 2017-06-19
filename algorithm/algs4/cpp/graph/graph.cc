@@ -150,4 +150,54 @@ void Cycle::dfs(const Graph& G, int v, int u) {
 	}
 }
 
+Bipartite::Bipartite(const Graph& G): bp(true) {
+	marked = new bool[G.V()]();
+	color =  new bool[G.V()]();
+	for (int v = 0; v < G.V(); ++v)
+		if (!marked[v]) dfs(G, v);
+}
+
+Bipartite::~Bipartite() {
+	delete [] marked;
+	delete [] color;
+}
+
+void Bipartite::dfs(const Graph& G, int v) {
+	marked[v] = true;
+	for (const auto& w : G.adj(v)) {
+		if (!isBipartite()) return;
+		else if (!marked[w]) {
+			color[w] = !color[v];
+			dfs(G, w);
+		} else if (color[w] == color[v]) {
+			bp = false;
+		} 
+	}
+}
+
+CC::CC(const Graph& G): cnt(0) {
+	marked = new bool[G.V()]();
+	id     = new int[G.V()]();
+  
+  for (int v = 0; v < G.V(); ++v) {
+		if (!marked[v]) {
+			dfs(G, v);
+			++cnt;
+		}
+	}
+}
+
+CC::~CC() {
+	delete [] id;
+	delete [] marked;
+}
+
+void CC::dfs(const Graph& G, int v) {
+	marked[v] = true;
+	id[v] = cnt;
+	for (const auto& w : G.adj(v)) {
+		if (!marked[w]) dfs(G, w);
+	}
+}
+
 }

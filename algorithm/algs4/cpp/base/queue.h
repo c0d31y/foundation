@@ -112,7 +112,7 @@ class QueueIterator {
   const T& operator * () const { return cur->item;  }
 
  private:
-	typename Queue<T>::Node cur;
+	typename Queue<T>::Node *cur;
 };
 
 template <typename T>

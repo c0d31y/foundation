@@ -43,7 +43,72 @@ std::ostream& operator << (std::ostream& os, const Digraph& G) {
 	return os;
 }
 
+DirectedDFS::DirectedDFS(const Digraph& G, int s) {
+	marked = new bool[G.V()]();
+	dfs(G, s);
 }
-	
-	
-	
+
+DirectedDFS::DirectedDFS(const Digraph& G, const Bag<int>& sources) {
+	marked = new bool[G.V()]();
+	for (const auto& s : sources) dfs(G, s);
+}
+
+DirectedDFS::~DirectedDFS() { delete [] marked; }
+
+void DirectedDFS::dfs(const Digraph& G, int v) {
+	marked[v] = true;
+	for (const auto& w : G.adj(v))
+		if (!marked[w]) dfs(G, w);
+}
+
+DirectedCycle::DirectedCycle(const Digraph& G) {
+	marked = new bool[G.V()]();
+	onStack = new bool[G.V()]();
+	edgeTo = new int[G.V()]();
+	for (int v = 0; v < G.V(); ++v)
+		if (!marked[v]) dfs(G, v);
+}
+
+DirectedCycle::~DirectedCycle() {
+	delete [] marked;
+	delete [] onStack;
+	delete [] edgeTo;
+}
+
+void DirectedCycle::dfs(const Digraph& G, int v) {
+	marked[v] = true;
+	onStack[v] = true;
+	for (const auto& w : G.adj(v)) {
+		if (hasCycle()) return ;
+		else if (!marked[w]) {
+			edgeTo[w] = v;
+			dfs(G, w);
+		} else if (onStack[w]) {
+			for (int x = v; x != w; x = edgeTo[x])
+				cycle_.push(x);
+			cycle_.push(w);
+			cycle_.push(v);
+		}
+	}
+	onStack[v] = false;
+}
+
+DepthFirstOrder::DepthFirstOrder(const Digraph& G) {
+	marked = new bool[G.V()]();
+	for (int v = 0; v < G.V(); ++v)
+		if (!marked[v]) dfs(G, v);
+}  
+
+DepthFirstOrder::~DepthFirstOrder() { delete [] marked; }
+
+void DepthFirstOrder::dfs(const Digraph& G, int v) {
+	marked[v] = true;
+	pre_.enqueue(v);
+	for (const auto& w: G.adj(v)) {
+		if (!marked[w]) dfs(G, w);
+	}
+	post_.enqueue(v);
+	reversePost_.push(v);
+}
+
+}

@@ -482,6 +482,8 @@ X 7
 ### `class Bipartite`
 
 ```bash
+% java Bipartite tinyG.txt
+The graph is not bipartite
 ```
 
 ### `class CC`

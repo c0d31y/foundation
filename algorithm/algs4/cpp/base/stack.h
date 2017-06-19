@@ -48,8 +48,12 @@ class Stack {
 	}
 
 	T pop() {
-		T item = first->item;
+
+		Node *tmp = first; 
 		first = first->next;
+
+		T item = tmp->item;
+		delete tmp;
 		--n;
 		return item;
 	}

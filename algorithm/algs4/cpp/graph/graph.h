@@ -84,5 +84,41 @@ class Cycle {
 	void dfs(const Graph& G, int v, int u);
 };
 
+class Bipartite {
+ 
+ public:
+	
+	Bipartite(const Graph& G);
+	~Bipartite();
+	
+	bool isBipartite() const { return bp; }	 
+	
+ private:
+
+	bool bp;
+	bool *marked;
+	bool *color;
+	void dfs(const Graph& G, int v);
+
+};
+
+class CC {
+
+ public:
+
+	CC(const Graph& G);
+	~CC();
+
+  int count() const { return cnt; }
+	int cid(int v) const { return id[v]; }
+
+ private:
+	
+	int cnt;
+	int *id;
+	bool *marked;
+	void dfs(const Graph& G, int v);
+};
+
 }
 #endif
