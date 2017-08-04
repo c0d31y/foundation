@@ -30,6 +30,15 @@ void Digraph::addEdge(int v, int w) {
 }
 
 const Bag<int>& Digraph::adj(int v) const { return adj_[v]; }
+
+Digraph Digraph::reverse() const {
+
+	Digraph G(V_);
+	for (int v = 0; v < V_; ++v)
+		for (const auto& w : adj(v))
+			G.addEdge(w, v);
+	return G;
+}
 	
 std::ostream& operator << (std::ostream& os, const Digraph& G) {
 

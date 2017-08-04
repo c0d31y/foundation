@@ -23,6 +23,7 @@ class Digraph {
 
 	void addEdge(int v, int w);
 	const Bag<int>& adj(int v) const;
+	Digraph reverse() const; 
 
  private:
 	int V_;
